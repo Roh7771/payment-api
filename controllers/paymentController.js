@@ -10,7 +10,6 @@ const transporter = nodemailer.createTransport(
 
 exports.createPayment = async (req, res) => {
   try {
-    console.log(req.body);
     await Payment.create({ ...req.body, paidStatus: false });
 
     res.status(200).json({
@@ -26,9 +25,7 @@ exports.createPayment = async (req, res) => {
 
 exports.sendMail = async (req, res) => {
   try {
-    console.log(req.body.label);
-
-    const label = req.body.label === "" ? "lolka" : req.body.label;
+    const label = req.body.label;
 
     const { email } = await Payment.findOneAndUpdate(
       { label },
