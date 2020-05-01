@@ -25,6 +25,7 @@ exports.createPayment = async (req, res) => {
 
 exports.sendMail = async (req, res) => {
   try {
+    console.log(req.body);
     const label = req.body.label;
 
     const { email } = await Payment.findOneAndUpdate(
