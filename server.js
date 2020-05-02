@@ -18,22 +18,7 @@ mongoose
   })
   .then(() => console.log("DB connection successful!"));
 
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => {
-//   console.log(`App running on port ${port}...`);
-// });
-require("greenlock-express")
-  .init({
-    packageRoot: __dirname,
-
-    maintainerEmail: "jon@example.com",
-
-    // contact for security and critical bug notices
-    configDir: "./greenlock.d",
-
-    // whether or not to run at cloudscale
-    cluster: false,
-  })
-  // Serves on 80 and 443
-  // Get's SSL certificates magically!
-  .serve(app);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`App running on port ${port}...`);
+});
